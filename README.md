@@ -42,3 +42,118 @@ Parameters:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--security-group-ids:** 'Security Groups' in the EC2 portal   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--subnet-id:** 'Subnets' in VPC portal  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--tag-specifications:** provides an instance name as the Value, e.g., 'RStudio'
+
+### Check the instance is running  
+
+```
+$ aws ec2 describe-instances --filters "Name=tag:Name,Values=RStudio"
+```
+
+*Record instance ID  
+*Record PublicDnsName  
+
+## 3. Connect to EC2 instance using SSH  
+
+```
+$ ssh -i </path/my-key-pair.pem> ubuntu@<my-instance-public-dns-name>
+```  
+
+## 4. Install yum  
+
+Tool for getting, installing, deleting, querying, and managing Linux software packages  
+
+```
+$ sudo apt install yum  
+$ sudo yum installed
+```  
+
+## 5. Add the CRAN repo  
+
+Ubuntu repos contain an outdated version of R  
+
+```
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+$ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+```
+
+### Update Ubuntu package repo  
+
+```
+$ sudo apt update
+```  
+
+## 6. Install R  
+
+```
+$ sudo apt -y install r-base r-base-dev
+```  
+
+## 7. Install debian package manager, gdebi  
+
+```
+$ sudo apt install gdebi-core
+```  
+
+## 8. Install dependencies for R packages  
+
+devtools, tidyverse, sparklyr, RMariaDB  
+
+```
+$ sudo apt -y install libcurl4-openssl-dev 
+$ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
+```  
+
+## 9. Install RStudio  
+
+```
+$ wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.02.3-492-amd64.deb
+$ sudo gdebi -n rstudio-server-2022.02.3-492-amd64.deb
+$ sudo rm rstudio-server-2022.02.3-492-amd64.deb
+```  
+
+## 10. Install useful R Packages  
+
+RCurl used for reading objects directly from S3 bucket  
+
+```
+$ sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"
+$ sudo R -e "install.packages('devtools', repos='http://cran.rstudio.com')"
+$ sudo R -e "install.packages('tidyverse')"
+$ sudo R -e "install.packages('RMariaDB')"
+```  
+
+## 11. Set RStudio login credentials  
+
+Add user info to login RStudio 
+
+```
+$ sudo adduser rstudio (username = rstudio)
+```
+Password: rstudio  
+
+## 12. Add rstudio to sudo group  
+
+```
+$ sudo usermod -aG sudo rstudio
+```  
+
+## 13. Install Java for RStudio  
+
+Reconfigure the library paths for RStudio use
+
+```
+$ sudo apt -y install default-jdk
+$ sudo R CMD javareconf
+```  
+
+## 14. Change permissions for R library  
+
+```
+$ sudo chmod 777 -R /usr/local/lib/R/site-library
+```  
+
+### Restart rstudio-server  
+
+```
+$ sudo rstudio-server restart
+```

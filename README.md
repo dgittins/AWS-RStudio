@@ -185,11 +185,11 @@ Provide a name and description:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Name:** RStudio-Ubuntu-Server-18.04-LTS-(HVM)-SSD-Volume  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Description:** RStudio Ubuntu Server 18.04 LTS (HVM), SSD Volume
 
-***Delete on termination: disable***  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Delete on termination:*** disable  
 
 *Record AMI ID  
 
-Change the 'Name' field of an AMI  
+Change the 'Name' field of an AMI:  
 ```
 $ aws ec2 create-tags --resources <AMI ID> --tags Key=Name,Value=RStudioAMI
 ```

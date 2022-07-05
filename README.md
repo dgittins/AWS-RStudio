@@ -26,7 +26,7 @@ Example security group:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outbound rule 1 - All traffic
 
-*Record security group ID  
+*Record security group ID<br/><br/>
 
 ## 2. Create EC2 instance with an Amazon Linux AMI
 
@@ -59,7 +59,7 @@ $ aws ec2 describe-instances --filters "Name=tag:Name,Values=RStudio"
 ```
 $ ssh -i </path/to/my-key-pair.pem> ubuntu@<my-instance-public-dns-name>
 ```  
-Instructions to generate a key pair: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html  
+Instructions to generate a key pair: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html<br/><br/>
 
 ## 3. Install yum  
 
@@ -174,7 +174,7 @@ Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Ser
 
 &lt;Public DNS(IPv4)&gt;:8787  
 
-Use the credentials created earlier in the workflow.  
+Use the credentials created earlier in the workflow.<br/><br/>
 
 ## 8. Create an AMI of the EC2 Instance  
 

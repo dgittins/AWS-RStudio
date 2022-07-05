@@ -18,7 +18,7 @@ Example security group:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Security group name:** RStudio-security-group  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Description:** Allow SSH, HTTP, RStudio  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**VPC:** &lt;provide vpc ID&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**VPC:** &lt;vpc ID&gt;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inbound rule 1 - SSH, Anywhere-IPv4, port 22  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inbound rule 2 - HTTP, Anywhere-IPv4, port 80  
@@ -102,24 +102,24 @@ GDebi is a package installer for Debian packages on Linux.
 $ sudo apt install gdebi-core
 ```  
 
-#### Install dependencies for R packages  
-
-devtools, tidyverse, sparklyr, RMariaDB  
-
-```
-$ sudo apt -y install libcurl4-openssl-dev 
-$ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
-```  
-
 #### Install RStudio Server 
 
 ```
 $ wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.02.3-492-amd64.deb
 $ sudo gdebi -n rstudio-server-2022.02.3-492-amd64.deb
 $ sudo rm rstudio-server-2022.02.3-492-amd64.deb
-```  
+```   
 
-#### Install useful R Packages  
+#### Install R packages  
+
+Install dependencies for devtools, tidyverse, sparklyr, RMariaDB R packages:  
+
+```
+$ sudo apt -y install libcurl4-openssl-dev 
+$ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
+```    
+
+Install R Packages:  
 
 RCurl package is used for reading objects directly from an S3 bucket.  
 
@@ -151,7 +151,7 @@ $ sudo usermod -aG sudo rstudio
 
 #### Install Java for RStudio  
 
-Reconfigure the library paths for RStudio use
+Reconfigure the library paths for RStudio use:
 
 ```
 $ sudo apt -y install default-jdk
@@ -172,6 +172,6 @@ $ sudo rstudio-server restart
 
 ## 7. Login to RStudio  
 
-Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the url
+Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the url:
 
 &lt;Public DNS(IPv4)&gt;:8787

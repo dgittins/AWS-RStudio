@@ -6,9 +6,9 @@ Credit Jagger Villalobos (https://jagg19.github.io/2019/08/aws-r/#long_way)
 
 Prerequisites:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Create an AWS account  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Set IAM permissions to allow Amazon EC2 access  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Install and configure AWS Command Line Interface (CLI)<br/><br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Create an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Set [IAM permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) to allow Amazon EC2 access  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Install and configure [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) (CLI)<br/><br/>  
 
 ## 1. Configure a security group that has ports for SSH, HTTP, RStudio<br/>
 

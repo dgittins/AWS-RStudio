@@ -45,7 +45,7 @@ Parameters:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--subnet-id:** 'Subnets' in VPC portal  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--tag-specifications:** provides an instance name as the Value, e.g., 'RStudio'
 
-### Check the instance is running 
+#### Check the instance is running 
 
 ```
 $ aws ec2 describe-instances --filters "Name=tag:Name,Values=RStudio"
@@ -79,19 +79,22 @@ $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65D
 $ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
 ```
 
-### Update Ubuntu package repository  
+#### Update Ubuntu package repository  
 
 ```
 $ sudo apt update
 ```  
 
-## 5. Install R, R Studio Server and dependencies 
+## 5. Install R, R Studio Server and system dependencies  
+
+Base-R (r-base) is the basic software which contains the R programming language.  
+r-base-dev is an ubuntu package for compiling R packages and other software depending on R.  
 
 ```
 $ sudo apt -y install r-base r-base-dev
 ```  
 
-### Install debian package manager, gdebi  
+#### Install debian package manager, gdebi  
 
 GDebi is a package installer for Debian packages on Linux.  
 
@@ -99,7 +102,7 @@ GDebi is a package installer for Debian packages on Linux.
 $ sudo apt install gdebi-core
 ```  
 
-### Install dependencies for R packages  
+#### Install dependencies for R packages  
 
 devtools, tidyverse, sparklyr, RMariaDB  
 
@@ -108,7 +111,7 @@ $ sudo apt -y install libcurl4-openssl-dev
 $ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
 ```  
 
-### Install RStudio Server 
+#### Install RStudio Server 
 
 ```
 $ wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.02.3-492-amd64.deb
@@ -116,9 +119,9 @@ $ sudo gdebi -n rstudio-server-2022.02.3-492-amd64.deb
 $ sudo rm rstudio-server-2022.02.3-492-amd64.deb
 ```  
 
-### Install useful R Packages  
+#### Install useful R Packages  
 
-RCurl used for reading objects directly from S3 bucket  
+RCurl package is used for reading objects directly from an S3 bucket.  
 
 ```
 $ sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"
@@ -129,7 +132,7 @@ $ sudo R -e "install.packages('RMariaDB')"
 
 ## 6. Configure R Studio Server 
 
-### Set RStudio login credentials  
+#### Set RStudio login credentials  
 
 Add user info to login RStudio 
 
@@ -140,13 +143,13 @@ Password: rstudio
 
 Username and password set as 'rstudio' for ease of use.
 
-### Add RStudio to sudo group  
+#### Add RStudio to sudo group  
 
 ```
 $ sudo usermod -aG sudo rstudio
 ```  
 
-### Install Java for RStudio  
+#### Install Java for RStudio  
 
 Reconfigure the library paths for RStudio use
 
@@ -155,14 +158,20 @@ $ sudo apt -y install default-jdk
 $ sudo R CMD javareconf
 ```  
 
-### Change permissions for R library  
+#### Change permissions for R library  
 
 ```
 $ sudo chmod 777 -R /usr/local/lib/R/site-library
 ```  
 
-### Restart RStudio Server  
+#### Restart RStudio Server  
 
 ```
 $ sudo rstudio-server restart
-```
+```  
+
+## 7. Login to RStudio  
+
+Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the url
+
+&lt;Public DNS(IPv4)&gt;:8787

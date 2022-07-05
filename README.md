@@ -54,7 +54,7 @@ $ aws ec2 describe-instances --filters "Name=tag:Name,Values=RStudio"
 *Record instance ID  
 *Record PublicDnsName  
 
-### Connect to EC2 instance using Secure Shell Protocol (SSH)  
+#### Connect to EC2 instance using Secure Shell Protocol (SSH)  
 
 ```
 $ ssh -i </path/to/my-key-pair.pem> ubuntu@<my-instance-public-dns-name>
@@ -121,8 +121,6 @@ $ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essentia
 
 Install R Packages:  
 
-RCurl package is used for reading objects directly from an S3 bucket.  
-
 ```
 $ sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"
 $ sudo R -e "install.packages('devtools', repos='http://cran.rstudio.com')"
@@ -158,7 +156,7 @@ $ sudo apt -y install default-jdk
 $ sudo R CMD javareconf
 ```  
 
-#### Change permissions for R library  
+#### Change the access permissions for R library  
 
 ```
 $ sudo chmod 777 -R /usr/local/lib/R/site-library
@@ -170,8 +168,8 @@ $ sudo chmod 777 -R /usr/local/lib/R/site-library
 $ sudo rstudio-server restart
 ```  
 
-## 7. Login to RStudio  
+## 7. Login to RStudio Server  
 
-Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the url:
+Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the URL:
 
 &lt;Public DNS(IPv4)&gt;:8787

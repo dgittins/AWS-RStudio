@@ -172,4 +172,24 @@ $ sudo rstudio-server restart
 
 Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the URL:
 
-&lt;Public DNS(IPv4)&gt;:8787
+&lt;Public DNS(IPv4)&gt;:8787  
+
+Use the credentials created earlier in the workflow.  
+
+## 8. Create an AMI of the EC2 Instance  
+
+On the EC2 portal, right-click the instance, and choose 'Create Image' from the context menu  
+
+Provide a name and description:  
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Name:** RStudio-Ubuntu-Server-18.04-LTS-(HVM)-SSD-Volume  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Description:** RStudio Ubuntu Server 18.04 LTS (HVM), SSD Volume
+
+***Delete on termination: disable***  
+
+*Record AMI ID  
+
+Change the 'Name' field of an AMI  
+```
+$ aws ec2 create-tags --resources <AMI ID> --tags Key=Name,Value=RStudioAMI
+```

@@ -1,18 +1,18 @@
 # AWS RStudio
 
-Instructions for running R and RStudio Server on an AWS EC2 instance and for creating an RStudio Amazon Machine Image (AMI)
-
-Credit Jagger Villalobos (https://jagg19.github.io/2019/08/aws-r/#long_way)
+Instructions for running R and RStudio Server on an AWS EC2 instance
 
 Prerequisites:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a. Create an [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b. Set [IAM permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) to allow Amazon EC2 access  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Install and configure [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) (CLI)<br/><br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c. Install and configure [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) (CLI)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d. Create and configure an [Amazon Virtual Private Cloud](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/gsg_create_vpc.html) (Amazon VPC)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e. Create an [Amazon EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)<br/><br/>  
 
 ## 1. Configure a security group that has ports for SSH, HTTP, RStudio<br/>
 
-A [security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) acts as a virtual firewall for an EC2 instance to control incoming and outgoing traffic. Security groups can be created using the Amazon VPC console or using the AWS CLI 
+A security group acts as a virtual firewall for an EC2 instance to control incoming and outgoing traffic. Security groups can be created using the [Amazon VPC console](https://console.aws.amazon.com/vpc/) or using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html).  
 
 Example security group:  
 
@@ -24,17 +24,19 @@ Example security group:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inbound rule 2 - HTTP, Anywhere-IPv4, port 80  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Inbound rule 3 - Custom TCP, Anywhere-IPv4, port 8787 (RStudio)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outbound rule 1 - All traffic
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outbound rule 1 - All traffic  
 
 *Record security group ID<br/><br/>
 
-## 2. Create EC2 instance with an Amazon Linux AMI
+## 2. Create EC2 instance with an Amazon Linux AMI  
 
-Free tier eligible:  
+An Amazon Machine Image (AMI) is a basic configuration that serves as a template for an EC2 instance. 
+
+Free tier eligible AMI:  
 Ubuntu Amazon Machine Image (AMI) Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - ami-0c159d337b331627c (64-bit (x86))  
 
 ```
-$ aws ec2 run-instances --image-id ami-0c159d337b331627c --count 1 --instance-type t2.micro --key-name EC2 --security-group-ids <security group ID> --subnet-id <subnet ID> --tag-specifications ResourceType=instance,Tags='[{Key=Name,Value=RStudio}]'
+$ aws ec2 run-instances --image-id ami-0c159d337b331627c --count 1 --instance-type t2.micro --key-name <key pair name> --security-group-ids <security group ID> --subnet-id <subnet ID> --tag-specifications ResourceType=instance,Tags='[{Key=Name,Value=RStudio}]'
 ```  
 
 Parameters:
@@ -43,7 +45,7 @@ Parameters:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--key-name:** 'Key Pairs' in the EC2 portal  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--security-group-ids:** 'Security Groups' in the EC2 portal   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--subnet-id:** 'Subnets' in VPC portal  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--tag-specifications:** provides an instance name as the Value, e.g., 'RStudio'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**--tag-specifications:** provide an instance name, e.g., 'RStudio'
 
 #### Check the instance is running 
 
@@ -59,7 +61,6 @@ $ aws ec2 describe-instances --filters "Name=tag:Name,Values=RStudio"
 ```
 $ ssh -i </path/to/my-key-pair.pem> ubuntu@<my-instance-public-dns-name>
 ```  
-Instructions to generate a key pair: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html<br/><br/>
 
 ## 3. Install yum  
 
@@ -72,7 +73,7 @@ $ sudo yum installed
 
 ## 4. Add the The Comprehensive R Archive Network (CRAN) package repository  
 
-Ubuntu repos contain an outdated version of R. The most recent version of RStudio Server can be found here: https://www.rstudio.com/products/rstudio/download-server/    
+Ubuntu repositories contain an outdated version of R. The most recent version of RStudio Server can be found here: https://www.rstudio.com/products/rstudio/download-server/    
 
 ```
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
@@ -170,7 +171,7 @@ $ sudo rstudio-server restart
 
 ## 7. Login to RStudio Server  
 
-Open a web browser and enter Public DNS(IPv4) as the URL to login to RStudio Server. Specify RStudio port (8787) at the end of the URL:
+Open a web browser and enter Public DNS(IPv4) as the URL to access RStudio Server. Specify RStudio port (8787) at the end of the URL:
 
 &lt;Public DNS(IPv4)&gt;:8787  
 

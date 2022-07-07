@@ -1,6 +1,6 @@
 # AWS RStudio
 
-Instructions for running R and RStudio Server on an AWS EC2 instance
+Workflow for running R and RStudio Server on an AWS EC2 instance
 
 Prerequisites:
 

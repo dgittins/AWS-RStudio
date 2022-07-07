@@ -69,6 +69,8 @@ $ aws ec2 describe-instances --filters "Name=tag:Name,Values=RStudio"
 $ ssh -i </path/to/my-key-pair.pem> ubuntu@<my-instance-public-dns-name>
 ```  
 
+Default usernames for different AMIs are listed here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html  
+
 ## 3. Install yum  
 
 Tool for getting, installing, deleting, querying, and managing Linux software packages.  

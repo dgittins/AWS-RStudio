@@ -196,6 +196,6 @@ Example AMI:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Name:** RStudio-Ubuntu-Server-18.04-LTS-(HVM)-SSD-Volume  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Description:** RStudio Ubuntu Server 18.04 LTS (HVM), SSD Volume
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Delete on termination:** Disable (EBS volume will not be deleted on termination of the EC2 instance.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Delete on termination:** Disable (EBS volume will not be deleted on termination of the EC2 instance)  
 
 *Record AMI ID for future use

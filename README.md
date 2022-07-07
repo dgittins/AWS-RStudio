@@ -177,9 +177,9 @@ Open a web browser and enter Public DNS(IPv4) as the URL to access RStudio Serve
 
 *Use the credentials (rstudio) created earlier in the workflow.<br/><br/>
 
-## 8. Create an AMI of the EC2 Instance  
+## 8. Create an AMI from the EC2 Instance  
 
-On the EC2 portal, right-click the instance, and choose 'Create Image' from the context menu  
+An AMI can be created using the [EC2 portal](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html) or the [CLI](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/ec2/create-image.html)
 
 Provide a name and description:  
 
@@ -189,8 +189,3 @@ Provide a name and description:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Delete on termination:*** disable  
 
 *Record AMI ID  
-
-Change the 'Name' field of an AMI:  
-```
-$ aws ec2 create-tags --resources <AMI ID> --tags Key=Name,Value=RStudioAMI
-```

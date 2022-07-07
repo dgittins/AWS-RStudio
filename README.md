@@ -189,7 +189,7 @@ Open a web browser and enter Public DNS(IPv4) followed by the RStudio port (8787
 
 ## 8. Create an AMI from the EC2 Instance  
 
-To save the installed programs and seetings, an AMI can be created using the [EC2 portal](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html) or the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/ec2/create-image.html)
+To save the installed programs and settings, an AMI can be created using the [EC2 portal](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html) or the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/ec2/create-image.html)
 
 Example AMI:  
 

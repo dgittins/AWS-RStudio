@@ -188,4 +188,4 @@ Provide a name and description:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Delete on termination:*** disable  
 
-*Record AMI ID  
+*Record AMI ID for future use

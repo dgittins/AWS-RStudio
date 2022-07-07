@@ -140,7 +140,7 @@ $ sudo adduser rstudio (username = rstudio)
 ```
 Password: rstudio  
 
-Username and password set as 'rstudio' for ease of use.
+Username and password set as 'rstudio' for ease of use.  
 
 #### Add RStudio to sudo group  
 

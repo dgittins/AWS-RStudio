@@ -175,7 +175,7 @@ Open a web browser and enter Public DNS(IPv4) as the URL to access RStudio Serve
 
 &lt;Public DNS(IPv4)&gt;:8787  
 
-Use the credentials created earlier in the workflow.<br/><br/>
+*Use the credentials (rstudio) created earlier in the workflow.<br/><br/>
 
 ## 8. Create an AMI of the EC2 Instance  
 

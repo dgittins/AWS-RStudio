@@ -120,7 +120,7 @@ $ sudo apt -y install libcurl4-openssl-dev
 $ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
 ```    
 
-Install R Packages:  
+Install packages:  
 
 ```
 $ sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"

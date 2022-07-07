@@ -95,7 +95,7 @@ $ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bion
 $ sudo apt update
 ```  
 
-## 5. Install R, R Studio Server and system dependencies  
+## 5. Install R and system dependencies  
 
 r-base is the basic software which contains the R programming language. r-base-dev is an ubuntu package for compiling R packages and other software depending on R.  
 
@@ -123,6 +123,8 @@ $ sudo R -e "install.packages('tidyverse')"
 $ sudo R -e "install.packages('RMariaDB')"
 ```  
 
+## 6. Install and configure R Studio Server
+
 #### Install debian package manager, gdebi  
 
 GDebi is a package installer for Debian packages on Linux.  
@@ -139,18 +141,16 @@ $ sudo gdebi -n rstudio-server-2022.02.3-492-amd64.deb
 $ sudo rm rstudio-server-2022.02.3-492-amd64.deb
 ```   
 
-## 6. Configure R Studio Server 
-
 #### Set RStudio login credentials  
 
-Add user info to login RStudio 
+Add user information to login to RStudio 
 
 ```
 $ sudo adduser rstudio (username = rstudio)
 ```
 Password: rstudio  
 
-Username and password set as 'rstudio' for ease of use.  
+Username and password set as 'rstudio' for ease of use.<br/><br/>  
 
 #### Add RStudio to sudo group  
 

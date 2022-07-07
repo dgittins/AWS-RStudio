@@ -35,7 +35,7 @@ Amazon EC2 provides a wide selection of instance types optimized for different u
 An Amazon Machine Image (AMI) is a basic configuration that serves as a template for an EC2 instance. 
 
 Free tier availability instance:  
-t2.micro, 1 vCPU, 1.0 RAM (GiB)
+t2.micro - 1 vCPU, 1.0 RAM (GiB)
 
 Free tier eligible AMI:  
 Ubuntu Amazon Machine Image (AMI) Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - ami-0c159d337b331627c (64-bit (x86))  

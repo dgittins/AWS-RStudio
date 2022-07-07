@@ -12,7 +12,7 @@ Prerequisites:
 
 ## 1. Configure a security group that has ports for SSH, HTTP, RStudio<br/>
 
-A security group acts as a virtual firewall for an EC2 instance to control incoming and outgoing traffic.  
+A [security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) acts as a virtual firewall for an EC2 instance to control incoming and outgoing traffic. Security groups can be created using the Amazon VPC console or using the AWS CLI 
 
 Example security group:  
 

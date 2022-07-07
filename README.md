@@ -179,9 +179,9 @@ $ sudo chmod 777 -R /usr/local/lib/R/site-library
 $ sudo rstudio-server restart
 ```  
 
-## 7. Login to RStudio Server  
+## 7. Access RStudio Server  
 
-Open a web browser and enter Public DNS(IPv4) as the URL to access RStudio Server. Specify RStudio port (8787) at the end of the URL:
+Open a web browser and enter Public DNS(IPv4) followed by the RStudio port (8787) as the URL:
 
 &lt;Public DNS(IPv4)&gt;:8787  
 

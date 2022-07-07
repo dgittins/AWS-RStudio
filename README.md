@@ -97,11 +97,30 @@ $ sudo apt update
 
 ## 5. Install R, R Studio Server and system dependencies  
 
-Base-R (r-base) is the basic software which contains the R programming language.  
-r-base-dev is an ubuntu package for compiling R packages and other software depending on R.  
+r-base is the basic software which contains the R programming language. r-base-dev is an ubuntu package for compiling R packages and other software depending on R.  
 
 ```
 $ sudo apt -y install r-base r-base-dev
+```  
+
+#### Install R packages  
+
+devtools, tidyverse, sparklyr, RMariaDB  
+
+Dependencies:  
+
+```
+$ sudo apt -y install libcurl4-openssl-dev 
+$ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
+```    
+
+R packages:
+
+```
+$ sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"
+$ sudo R -e "install.packages('devtools', repos='http://cran.rstudio.com')"
+$ sudo R -e "install.packages('tidyverse')"
+$ sudo R -e "install.packages('RMariaDB')"
 ```  
 
 #### Install debian package manager, gdebi  
@@ -119,24 +138,6 @@ $ wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.02.
 $ sudo gdebi -n rstudio-server-2022.02.3-492-amd64.deb
 $ sudo rm rstudio-server-2022.02.3-492-amd64.deb
 ```   
-
-#### Install R packages  
-
-Install dependencies for devtools, tidyverse, sparklyr, RMariaDB R packages:  
-
-```
-$ sudo apt -y install libcurl4-openssl-dev 
-$ sudo apt -y install libssl-dev libxml2-dev libmariadbclient-dev build-essential libcurl4-gnutls-dev
-```    
-
-Install packages:  
-
-```
-$ sudo R -e "install.packages('RCurl', repos='http://cran.rstudio.com')"
-$ sudo R -e "install.packages('devtools', repos='http://cran.rstudio.com')"
-$ sudo R -e "install.packages('tidyverse')"
-$ sudo R -e "install.packages('RMariaDB')"
-```  
 
 ## 6. Configure R Studio Server 
 

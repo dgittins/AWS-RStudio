@@ -73,7 +73,7 @@ $ sudo yum installed
 
 ## 4. Add the The Comprehensive R Archive Network (CRAN) package repository  
 
-Ubuntu repositories contain an outdated version of R. The most recent version of RStudio Server can be found here: https://www.rstudio.com/products/rstudio/download-server/    
+Ubuntu repositories contain an outdated version of R. The most recent version of RStudio Server can be found here: https://www.rstudio.com/products/rstudio/download-server/ and the command below updated accordingly.    
 
 ```
 $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
@@ -179,7 +179,7 @@ Open a web browser and enter Public DNS(IPv4) as the URL to access RStudio Serve
 
 ## 8. Create an AMI from the EC2 Instance  
 
-An AMI can be created using the [EC2 portal](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html) or the [CLI](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/ec2/create-image.html)
+To save the installed programs and seetings, an AMI can be created using the [EC2 portal](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html) or the [CLI](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/ec2/create-image.html)
 
 Example AMI:  
 

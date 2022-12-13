@@ -38,12 +38,12 @@ Free tier availability instance:
 t2.micro - 1 vCPU, 1.0 RAM (GiB)
 
 Free tier eligible AMI:  
-Ubuntu Amazon Machine Image (AMI) Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - ami-0c159d337b331627c (64-bit (x86))  
+Ubuntu Amazon Machine Image (AMI) Ubuntu Server 18.04 LTS (HVM), SSD Volume Type - ami-023fc89db93991d87 (64-bit (x86))  
 
 #### Launch instance via CLI
 
 ```
-$ aws ec2 run-instances --image-id ami-0c159d337b331627c --count 1 --instance-type t2.micro --key-name <key pair name> --security-group-ids <security group ID> --subnet-id <subnet ID> --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=RStudio}]' #name the instance 'RStudio'
+$ aws ec2 run-instances --image-id ami-023fc89db93991d87 --count 1 --instance-type t2.micro --key-name <key pair name> --security-group-ids <security group ID> --subnet-id <subnet ID> --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=RStudio}]' #name the instance 'RStudio'
 ```  
 
 Parameters:

@@ -43,7 +43,7 @@ Ubuntu Amazon Machine Image (AMI) Ubuntu Server 18.04 LTS (HVM), SSD Volume Type
 #### Launch instance via CLI
 
 ```
-$ aws ec2 run-instances --image-id ami-0c159d337b331627c --count 1 --instance-type t2.micro --key-name <key pair name> --security-group-ids <security group ID> --subnet-id <subnet ID> --tag-specifications ResourceType=instance,Tags='[{Key=Name,Value=RStudio}]'
+$ aws ec2 run-instances --image-id ami-0c159d337b331627c --count 1 --instance-type t2.micro --key-name <key pair name> --security-group-ids <security group ID> --subnet-id <subnet ID> --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=DADA2}]' 'ResourceType=volume,Tags=[{Key=Name,Value=DADA2}]' #label the instance and volume 'DADA2'
 ```  
 
 Parameters:
